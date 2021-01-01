@@ -1,0 +1,69 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "airbnb-typescript",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/react",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+        "plugin:jest/recommended"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module",
+        "tsconfigRootDir": "."
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "overrides": [
+        {
+            "env": {
+                "jest": true
+            },
+            "files": ["*.spec.ts"],
+            "rules": {
+                "no-unused-expressions": ["off"],
+                "jest/no-disabled-tests": "warn",
+                "jest/no-focused-tests": "error",
+                "jest/no-identical-title": "error",
+                "jest/prefer-to-have-length": "warn",
+                "jest/valid-expect": "error"
+            }
+        }
+    ],
+    "plugins": ["react-hooks"],
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [["statics", "./app/src/statics"]],
+                "extensions": [".ts", ".tsx", ".json"]
+            }
+        },
+        "import/core-modules": ["statics"],
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "react/prop-types": "off",
+        "react/destructuring-assignment": ["error", "always", { "ignoreClassFields": true }],
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "no-console": "error",
+        "spaced-comment": ["error", "always"],
+        "prettier/prettier": "error",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    }
+}
